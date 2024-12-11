@@ -7,15 +7,24 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(to bottom, #e0f7fa, #b2ebf2); /* خلفية زرقاء متدرجة */
+            background: linear-gradient(to bottom, #e0f7fa, #cceff1); /* خلفية زرقاء فاتحة */
             text-align: center;
             padding: 50px;
             direction: rtl;
+            animation: fadeIn 1s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         h1 {
-            color: #003c71; /* لون أزرق داكن */
+            color: #004d00; /* أخضر داكن */
             font-size: 36px;
             margin-bottom: 20px;
+            transition: color 0.3s;
+        }
+        h1:hover {
+            color: #007a33; /* أخضر فاتح عند التفاعل */
         }
         .countdown {
             display: flex;
@@ -23,22 +32,27 @@
             margin-top: 20px;
         }
         .box {
-            background-color: #0077c2; /* لون أزرق */
+            background-color: #007b5f; /* أخضر زاهي */
             color: white;
             padding: 20px;
             margin: 10px;
             border-radius: 10px;
             font-size: 24px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            transition: transform 0.2s;
+            transition: transform 0.2s, background-color 0.3s;
         }
         .box:hover {
             transform: scale(1.05);
+            background-color: #005f47; /* أخضر داكن عند التفاعل */
         }
         footer {
             margin-top: 30px;
             font-size: 18px;
             color: #333;
+            transition: color 0.3s;
+        }
+        footer:hover {
+            color: #007b5f; /* تغيير اللون عند التفاعل */
         }
         img {
             max-width: 150px;
