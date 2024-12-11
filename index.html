@@ -7,14 +7,15 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #e9f5fb; /* لون خلفية فاتح */
+            background: linear-gradient(to bottom, #e0f7fa, #b2ebf2); /* خلفية زرقاء متدرجة */
             text-align: center;
             padding: 50px;
             direction: rtl;
         }
         h1 {
-            color: #005b96; /* لون أزرق داكن */
+            color: #003c71; /* لون أزرق داكن */
             font-size: 36px;
+            margin-bottom: 20px;
         }
         .countdown {
             display: flex;
@@ -22,21 +23,25 @@
             margin-top: 20px;
         }
         .box {
-            background-color: #009688; /* لون أخضر مائل للزرقة */
+            background-color: #0077c2; /* لون أزرق */
             color: white;
             padding: 20px;
             margin: 10px;
             border-radius: 10px;
             font-size: 24px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s;
+        }
+        .box:hover {
+            transform: scale(1.05);
         }
         footer {
             margin-top: 30px;
             font-size: 18px;
-            color: #555;
+            color: #333;
         }
         img {
-            max-width: 150px; /* ضبط حجم الشعار */
+            max-width: 150px;
             margin-bottom: 20px;
         }
     </style>
@@ -44,12 +49,14 @@
 <body>
     <img src="https://www.uoh.edu.sa/Style%20Library/assets/images/whitelogoEn.png" alt="شعار جامعة حائل"> <!-- ضع رابط الشعار هنا -->
     <h1>العد التنازلي للمكافأة الجامعية</h1>
+    
     <div class="countdown">
         <div class="box" id="days">0<br>أيام</div>
         <div class="box" id="hours">0<br>ساعات</div>
         <div class="box" id="minutes">0<br>دقائق</div>
         <div class="box" id="seconds">0<br>ثواني</div>
     </div>
+
     <footer>
         <p>هانت يا جماعة!</p>
     </footer>
