@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>العد التنازلي للمكافأة الجامعية</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .countdown {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .box {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 5px;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <h1>العد التنازلي للمكافأة الجامعية</h1>
+    <div class="countdown">
+        <div class="box" id="days">0<br>أيام</div>
+        <div class="box" id="hours">0<br>ساعات</div>
+        <div class="box" id="minutes">0<br>دقائق</div>
+        <div class="box" id="seconds">0<br>ثواني</div>
+    </div>
+
+    <script>
+        function getNextCountdownDate() {
+            const now = new Date();
+            const currentMonth = now.getMonth();
+            const currentYear = now.getFullYear();
+            const nextDate = new Date(currentYear, currentMonth, 26);
+
+            // إذا كان اليوم أكبر من 26، ننتقل إلى الشهر التالي
+            if (now.getDate() > 26) {
+                nextDate.setMonth(currentMonth + 1);
+            }
+
+            // تعيين الوقت إلى نهاية اليوم
+            nextDate.setHours(23, 59, 59, 999);
+            return nextDate.getTime();
+        }
+
+        const countDownDate = getNextCountdownDate();
+
+        // تحديث العداد كل ثانية
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            // حساب الأيام والساعات والدقائق والثواني
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // عرض النتائج
+            document.getElementById("days").innerHTML = days + "<br>أيام";
+            document.getElementById("hours").innerHTML = hours + "<br>ساعات";
+            document.getElementById("minutes").innerHTML = minutes + "<br>دقائق";
+            document.getElementById("seconds").innerHTML = seconds + "<br>ثواني";
+
+            // إذا انتهى العد التنازلي
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("days").innerHTML = "انتهى";
+                document.getElementById("hours").innerHTML = "";
+                document.getElementById("minutes").innerHTML = "";
+                document.getElementById("seconds").innerHTML = "";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
